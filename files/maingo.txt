@@ -1,0 +1,21 @@
+package main
+
+import (
+	"os"
+	"github.com/joho/godotenv"
+	"github.com/labstack/echo/v4"
+)
+
+func main() {
+    err := godotenv.Load("./.env")
+    if err != nil{
+        panic(err)
+    }
+	e := echo.New()
+    RegisterHandlers(e)
+    port := os.Getenv("PORT")
+    if port == ""{
+        port = ":8080"
+    }
+    e.Logger.Fatal(e.Start(port))
+}
