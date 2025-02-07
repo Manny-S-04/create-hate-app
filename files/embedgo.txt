@@ -1,0 +1,17 @@
+package embed
+
+import (
+	"embed"
+	"io/fs"
+	"github.com/labstack/echo/v4"
+)
+
+var (
+    //go:embed all:static
+    static embed.FS
+    staticDirFS = echo.MustSubFS(static, "views/static")
+)
+
+func GetStaticDirFS() fs.FS{
+    return staticDirFS
+}

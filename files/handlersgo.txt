@@ -1,0 +1,20 @@
+package main
+
+import (
+	"{module}/views"
+	"{module}/views/pages"
+	"github.com/labstack/echo/v4"
+)
+
+func RegisterHandlers(e *echo.Echo) {
+    e.StaticFS("/static", embed.GetStaticDirFS())
+	HomePage(e)
+}
+
+func HomePage(e *echo.Echo) {
+	e.GET("/", func(c echo.Context) error {
+		return views.Home().Render(c.Request().Context(), c.Response().Writer)
+	})
+}
+
+// add more functions for each page
