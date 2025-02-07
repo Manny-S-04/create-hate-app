@@ -1,5 +1,5 @@
 # create-hate-app
-creates a lightweight basis for HTMX, ALPINEJS, goTEMPL, TURSO
+creates a lightweight basis for HTMX, ALPINEJS, TURSO, goEcho
 
 
 Please run go build . create-hate-app
